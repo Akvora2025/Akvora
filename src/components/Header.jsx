@@ -141,7 +141,7 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
                 }}
                 className="bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-3 rounded-full font-semibold text-center cursor-pointer inline-block w-full neon-glow"
               >
-                Get Started
+                Contact
               </button>
             </div>
           </div>
@@ -150,5 +150,6 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
     </motion.header>
   );
 };
+
 
 export default Header;
