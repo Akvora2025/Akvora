@@ -72,7 +72,7 @@ const Hero = ({ setActiveSection }) => {
                 onClick={() => setActiveSection && setActiveSection('services')}
                 className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-tech-blue hover:text-tech-blue transition-all duration-300 cursor-pointer inline-flex items-center justify-center"
               >
-                Learn More
+                Services
               </button>
             </motion.div>
 
@@ -172,5 +172,6 @@ const Hero = ({ setActiveSection }) => {
     </section>
   );
 };
+
 
 export default Hero;
