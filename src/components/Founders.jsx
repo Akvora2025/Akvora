@@ -35,7 +35,7 @@ const Founders = () => {
       bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
       image: '/images/Aravind.jpg',
       linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
-      github: 'https://github.com/karthik-r',
+      github: 'https://github.com/Aravind419',
       gradient: 'from-tech-blue to-blue-600'
     },
     {
@@ -294,7 +294,10 @@ const Founders = () => {
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center space-x-2 text-tech-blue font-semibold cursor-pointer"
           >
-            <span>Connect with us</span>
+            <a href="/Contact" className="inline-flex items-center space-x-2 text-tech-blue font-semibold hover:underline">
+              <span>Connect with us</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
             <ExternalLink className="w-4 h-4" />
           </motion.div>
         </motion.div>

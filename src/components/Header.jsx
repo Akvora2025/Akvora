@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 
 const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
@@ -25,6 +26,7 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
     { name: 'Home', section: 'home' },
     { name: 'About', section: 'about' },
     { name: 'Services', section: 'services' },
+    { name: 'Founders', section: 'founders' },
     { name: 'Contact', section: 'contact' },
   ];
 
@@ -46,8 +48,8 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center flex-shrink-0">
-            <button
-              onClick={() => setActiveSection("home")}
+            <Link
+              to="/"
               className="text-2xl lg:text-3xl font-bold gradient-text cursor-pointer whitespace-nowrap flex items-center justify-center">
               <img
                 // The path starts from the public directory.
@@ -58,7 +60,7 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
               />
               <span>Akvora</span>
              
-            </button>
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}

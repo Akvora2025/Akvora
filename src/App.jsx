@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,9 +10,21 @@ import Founders from './components/Founders';
 import CallToAction from './components/CallToAction';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SEO from './components/SEO';
 
-function App() {
-  const [activeSection, setActiveSection] = useState('home');
+function App({ initialSection }) {
+  // Get current location for route-based section selection
+  const location = useLocation();
+  
+  // Determine active section based on route or initial prop
+  const getDefaultSection = () => {
+    if (initialSection) return initialSection;
+    if (location.pathname === '/founders') return 'founders';
+    if (location.pathname === '/ceo') return 'ceo';
+    return 'home';
+  };
+
+  const [activeSection, setActiveSection] = useState(getDefaultSection());
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Handle section change with transition state and scroll to top
@@ -52,6 +65,14 @@ function App() {
     },
     services: { 
       components: [Services],
+      showAll: false 
+    },
+    founders: { 
+      components: [Founders],
+      showAll: false 
+    },
+    ceo: { 
+      components: [],
       showAll: false 
     },
     contact: { 
@@ -131,24 +152,48 @@ function App() {
     } else {
       // Individual section pages
       const Component = components[0];
-      return (
-        <motion.div
-          key={activeSection}
-          initial="initial"
-          animate="in"
-          exit="out"
-          variants={pageVariants}
-          transition={pageTransition}
-          className="min-h-screen flex flex-col"
-        >
-          <Component />
-        </motion.div>
-      );
+      if (Component) {
+        return (
+          <motion.div
+            key={activeSection}
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+            className="min-h-screen flex flex-col"
+          >
+            <Component />
+          </motion.div>
+        );
+      }
+      // For sections without components (like CEO), return null
+      return null;
     }
+  };
+
+  // Structured data for the main page
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Akvora",
+    "url": "https://akvora.com",
+    "logo": "https://akvora.com/transpareny_logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/akvora"
+    ],
+    "description": "Akvora delivers cutting-edge technology solutions including full-stack development, AI integration, and cloud deployment."
   };
 
   return (
     <div className="App bg-white">
+      <SEO 
+        title="Akvora - Modern Technology Solutions | Full-Stack, AI & Cloud Deployment"
+        description="Akvora delivers cutting-edge technology solutions including full-stack development, AI integration, and cloud deployment. Transform your business with our expert team."
+        keywords="akvora, technology solutions, full-stack development, ai integration, cloud deployment, software development, web development"
+        structuredData={structuredData}
+      />
+      
       <Header 
         activeSection={activeSection} 
         setActiveSection={handleSectionChange}
