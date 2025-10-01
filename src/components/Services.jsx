@@ -190,13 +190,10 @@ const Services = () => {
             whileTap={{ scale: 0.95 }}
             className="bg-white text-tech-blue px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
           >
-            <button
-                onClick={() => setActiveSection && setActiveSection('contact')}
-                className="bg-gradient-to-r from-neon-green to-tech-green text-black px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-neon-green/25 transform hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center justify-center space-x-2 neon-glow"
-              >
+           
                 <span>Get a Free Consultation</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
+              
+             
             <ArrowRight className="w-5 h-5" />
           </motion.button>
         </motion.div>
