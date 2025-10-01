@@ -127,17 +127,7 @@ const Contact = () => {
             <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
               <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
               
-              {state.succeeded && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3"
-                >
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-green-700">Thank you! Your message has been sent successfully.</span>
-                </motion.div>
-              )}
-
+              
               {state.errors && state.errors.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -230,6 +220,17 @@ const Contact = () => {
                     </>
                   ) : (
                     <>
+                    {state.succeeded && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3"
+                >
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <span className="text-green-700">Thank you! Your message has been sent successfully.</span>
+                </motion.div>
+              )}
+
                       <Send className="w-5 h-5" />
                       <span>Send Message</span>
                     </>
