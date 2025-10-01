@@ -159,11 +159,6 @@ npm run build
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 👥 Team
-
-- **Karthik R.** - Co-Founder & CEO
-- **Aravind S.** - Co-Founder & CTO  
-- **Dushyanth M.** - Co-Founder & COO
 
 ## 📄 License
 
@@ -176,5 +171,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **LinkedIn**: [Akvora Company](https://linkedin.com/company/akvora)
 
 ---
+
 
 **Built with ❤️ by the Akvora Team**
