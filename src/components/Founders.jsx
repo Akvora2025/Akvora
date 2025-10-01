@@ -289,17 +289,7 @@ const Founders = () => {
             Our combined expertise in full-stack development, AI integration, and cloud deployment 
             ensures your project is in capable hands.
           </p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center space-x-2 text-tech-blue font-semibold cursor-pointer"
-          >
-            <a href="/Contact" className="inline-flex items-center space-x-2 text-tech-blue font-semibold hover:underline">
-              <span>Connect with us</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
-            <ExternalLink className="w-4 h-4" />
-          </motion.div>
+          
         </motion.div>
       </div>
     </section>

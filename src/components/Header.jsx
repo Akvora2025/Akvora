@@ -56,7 +56,7 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
                 // So, it's '/images/' followed by your image file name.
                 src="/transpareny_logo.png"
                 alt="Transparent Akvora Logo" // IMPORTANT: Provide descriptive alt text
-                className="h-13 w-auto inline-block align-top mr-3.5 text-2xl lg:text-3xl" // Adjust these Tailwind CSS classes for sizing as needed
+                className="h-11 w-auto inline-block align-top mr-3.5 text-2xl lg:text-3xl" // Adjust these Tailwind CSS classes for sizing as needed
               />
               <span>Akvora</span>
              

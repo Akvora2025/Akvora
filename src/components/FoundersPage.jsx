@@ -37,7 +37,7 @@ const FoundersPage = ({ setActiveSection }) => {
       bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
       image: '/images/Aravind.jpg',
       linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
-      github: 'https://github.com/karthik-r',
+      github: 'https://github.com/Aravind419',
       gradient: 'from-tech-blue to-blue-600'
     },
     {

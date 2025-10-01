@@ -36,7 +36,7 @@ const CEOPage = ({ setActiveSection }) => {
     bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
     image: '/images/Aravind.jpg',
     linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
-    github: 'https://github.com/karthik-r',
+    github: 'https://github.com/Aravind419',
     gradient: 'from-tech-blue to-blue-600',
     detailedBio: `Aravind K. is the visionary CEO and Founder of Akvora, leading the company's strategic direction and innovation initiatives. With a strong background in artificial intelligence research and solutions engineering, Aravind specializes in deploying cutting-edge AI technologies to solve complex real-world problems.
 
@@ -62,7 +62,7 @@ Aravind holds a degree in Computer Science and has continued to stay at the fore
     "url": "https://akvora.com/ceo",
     "sameAs": [
       "https://www.linkedin.com/in/aravind-aravind/",
-      "https://github.com/karthik-r"
+      "https://github.com/Aravind419"
     ]
   };
 
@@ -268,13 +268,10 @@ Aravind holds a degree in Computer Science and has continued to stay at the fore
               className="inline-flex items-center space-x-2 text-tech-blue font-semibold cursor-pointer"
               onClick={() => setActiveSection && setActiveSection('contact')}
             >
-              <a 
-                href="/contact" 
-                className="inline-flex items-center space-x-2 text-tech-blue font-semibold hover:underline"
-              >
+        
                 <span>Contact Akvora Leadership</span>
                 <ExternalLink className="w-4 h-4" />
-              </a>
+             
               <ExternalLink className="w-4 h-4" />
             </motion.div>
           </motion.div>
