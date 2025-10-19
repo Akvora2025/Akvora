@@ -67,7 +67,7 @@ const About = () => {
         >
           <motion.div variants={itemVariants} className="mb-4">
             <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-2 rounded-full text-sm font-semibold">
-              About AKvora
+              About Akvora
             </span>
           </motion.div>
           
@@ -82,7 +82,7 @@ const About = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
           >
-            AKvora is a technology solutions company that bridges innovation and execution. 
+            Akvora is a technology solutions company that bridges innovation and execution. 
             Our mission is to deliver scalable, intelligent, and future-ready solutions that 
             empower businesses to grow in the digital age.
           </motion.p>
@@ -200,5 +200,6 @@ const About = () => {
     </section>
   );
 };
+
 
 export default About;
