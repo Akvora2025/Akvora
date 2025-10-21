@@ -36,7 +36,7 @@ const Founders = () => {
       image: '/images/Aravind.jpg',
       linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
       github: 'https://github.com/Aravind419',
-      gradient: 'from-tech-blue to-blue-600'
+      gradient: 'from-tech-green to-green-800'
     },
     {
       name: 'Karthik K.',
@@ -54,7 +54,7 @@ const Founders = () => {
       image: '/images/Balaji.jpg',
       linkedin: 'https://www.linkedin.com/in/balaji-s-19b175278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       github: 'https://github.com/Balaji200510',
-      gradient: 'from-tech-green to-green-600'
+      gradient: 'from-tech-blue to-blue-600'
     },
     {
       name: 'Dushyanth C.',
@@ -63,7 +63,7 @@ const Founders = () => {
       image: '/images/Dushyanth.jpg',
       linkedin: 'https://www.linkedin.com/in/dushyanth-c-7430b9278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ',
       github: 'https://github.com/dushyanth88',
-      gradient: 'from-tech-blue to-blue-600'
+      gradient: 'from-tech-blue to-blue-900'
     },
     {
       name: 'Kishore S.',
@@ -72,7 +72,7 @@ const Founders = () => {
       image: '/images/Kishore.jpg',
       linkedin: 'https://www.linkedin.com/in/kishore-krish-9510bb278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ',
       github: 'https://github.com/kishoreShankar97',
-      gradient: 'from-tech-blue to-blue-600'
+      gradient: 'from-tech-blue to-blue-900'
     },
   ];
 
