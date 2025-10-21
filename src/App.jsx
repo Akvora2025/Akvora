@@ -188,7 +188,7 @@ function App({ initialSection }) {
   return (
     <div className="App bg-white">
       <SEO 
-        title="Akvora - Modern Technology Solutions | Full-Stack, AI & Cloud Deployment"
+        title="Akvora Technology Solutions"
         description="Akvora delivers cutting-edge technology solutions including full-stack development, AI integration, and cloud deployment. Transform your business with our expert team."
         keywords="akvora, technology solutions, full-stack development, ai integration, cloud deployment, software development, web development"
         structuredData={structuredData}
