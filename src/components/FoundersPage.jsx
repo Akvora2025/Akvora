@@ -58,24 +58,7 @@ const FoundersPage = ({ setActiveSection }) => {
       github: 'https://github.com/Balaji200510',
       gradient: 'from-tech-green to-green-600'
     },
-    {
-      name: 'Dushyanth C.',
-      role: 'Full Stack Developer',
-      bio: ' Full-stack web developer Building modern, responsive and reliable web applications end-to-end.',
-      image: '/images/Dushyanth.jpg',
-      linkedin: 'https://www.linkedin.com/in/dushyanth-c-7430b9278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ',
-      github: 'https://github.com/dushyanth88',
-      gradient: 'from-tech-blue to-blue-600'
-    },
-    {
-      name: 'Kishore S.',
-      role: 'Data Analyst',
-      bio: 'Turning raw numbers into powerful stories 📊.Driving data-driven growth with clear, actionable insights 💡.',
-      image: '/images/Kishore.jpg',
-      linkedin: 'https://www.linkedin.com/in/kishore-krish-9510bb278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ',
-      github: 'https://github.com/kishoreShankar97',
-      gradient: 'from-tech-blue to-blue-600'
-    },
+   
   ];
 
   // Structured data for the page
