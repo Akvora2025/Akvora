@@ -1,0 +1,52 @@
+{
+  "hash": "d4a235d6",
+  "configHash": "079c608e",
+  "lockfileHash": "31151457",
+  "browserHash": "1b703cec",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "84ee4bc7",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "6b6ae384",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "b29645eb",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "533a1475",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "b1aabb2f",
+      "needsInterop": false
+    },
+    "@formspree/react": {
+      "src": "../../node_modules/@formspree/react/dist/index.mjs",
+      "file": "@formspree_react.js",
+      "fileHash": "0186496d",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-LV7LEDEA": {
+      "file": "chunk-LV7LEDEA.js"
+    },
+    "chunk-JRE55LYH": {
+      "file": "chunk-JRE55LYH.js"
+    }
+  }
+}

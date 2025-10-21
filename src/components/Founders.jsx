@@ -296,6 +296,4 @@ const Founders = () => {
   );
 };
 
-
 export default Founders;
-
