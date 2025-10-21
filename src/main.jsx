@@ -6,13 +6,16 @@ import CEOPage from './components/CEOPage.jsx'
 import './index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+// Dummy function for standalone pages
+const dummySetActiveSection = () => {};
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/founders" element={<FoundersPage />} />
-        <Route path="/ceo" element={<CEOPage />} />
+        <Route path="/founders" element={<FoundersPage setActiveSection={dummySetActiveSection} />} />
+        <Route path="/ceo" element={<CEOPage setActiveSection={dummySetActiveSection} />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
