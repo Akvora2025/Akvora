@@ -33,7 +33,7 @@ const Founders = () => {
       name: 'Aravind K.',
       role: 'Founder & CEO',
       bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
-      image: '/images/Aravind.jpg',
+      image: '/images/Aravind.png',
       linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
       github: 'https://github.com/Aravind419',
       gradient: 'from-tech-green to-green-800'
