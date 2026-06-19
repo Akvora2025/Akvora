@@ -49,15 +49,7 @@ const FoundersPage = ({ setActiveSection }) => {
       github: 'https://github.com/Karthik0484',
       gradient: 'from-tech-purple to-purple-600'
     },
-    {
-      name: 'Balaji S.',
-      role: 'Co-Founder & CDO',
-      bio: 'Operations and cloud deployment expert, ensuring projects scale reliably and efficiently.',
-      image: '/images/Balaji.jpg',
-      linkedin: 'https://www.linkedin.com/in/balaji-s-19b175278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      github: 'https://github.com/Balaji200510',
-      gradient: 'from-tech-green to-green-600'
-    },
+
   
   ];
 
@@ -86,7 +78,7 @@ const FoundersPage = ({ setActiveSection }) => {
     <div className="App bg-white min-h-screen">
       <SEO 
         title="Akvora Founders & Leadership Team | Meet Our Founders"
-        description="Discover the visionary founders of Akvora - Aravind K. (CEO), Karthik K. (CTO), and Balaji S. (CDO). Experts in AI, full-stack development, and cloud deployment."
+        description="Discover the visionary founders of Akvora - Aravind K. (CEO), Karthik K. (CTO), Experts in AI, full-stack development, and cloud deployment."
         keywords="akvora founders, akvora leadership, akvora team, technology founders, ai experts, full stack developers, cloud deployment experts"
         url="/founders"
         structuredData={structuredData}
@@ -320,10 +312,7 @@ const FoundersPage = ({ setActiveSection }) => {
                 Karthik serves as our Chief Technology Officer, overseeing all technical aspects of our operations. As a seasoned full-stack architect, he brings extensive experience in building scalable digital solutions that power modern businesses. His technical vision ensures we stay at the forefront of technological advancement.
               </p>
               
-              <h3 className="text-xl font-semibold text-gray-900">Balaji S. - CDO & Co-Founder</h3>
-              <p>
-                Balaji leads our operations and cloud deployment initiatives as Chief Delivery Officer. His expertise in cloud infrastructure and scalable systems ensures our projects are delivered efficiently and reliably. With his deep knowledge of operations, he plays a crucial role in maintaining our high standards of service delivery.
-              </p>
+              
               
               <h3 className="text-xl font-semibold text-gray-900">Why Choose Akvora?</h3>
               <p>

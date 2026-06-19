@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const SEO = ({ 
   title = "Akvora - Technology Solutions | Founders & Leadership Team",
-  description = "Meet the visionary founders of Akvora - Aravind K. (CEO), Karthik K. (CTO), and Balaji S. (CDO). Experts in full-stack development, AI integration, and cloud deployment.",
+  description = "Meet the visionary founders of Akvora - Aravind K. (CEO), Karthik K. (CTO), (CDO). Experts in full-stack development, AI integration, and cloud deployment.",
   keywords = "akvora founders, akvora ceo, akvora leadership, akvora team, technology founders, ai experts, full stack developers",
   image = "https://akvora.com/public/images",
   url = "",

@@ -47,15 +47,7 @@ const Founders = () => {
       github: 'https://github.com/Karthik0484',
       gradient: 'from-tech-purple to-purple-600'
     },
-    {
-      name: 'Balaji S.',
-      role: 'Co-Founder & CDO',
-      bio: 'Operations and cloud deployment expert, ensuring projects scale reliably and efficiently.',
-      image: '/images/Balaji.jpg',
-      linkedin: 'https://www.linkedin.com/in/balaji-s-19b175278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      github: 'https://github.com/Balaji200510',
-      gradient: 'from-tech-blue to-blue-600'
-    },
+    
     {
       name: 'Dushyanth C.',
       role: 'Full Stack Developer',
@@ -65,15 +57,7 @@ const Founders = () => {
       github: 'https://github.com/dushyanth88',
       gradient: 'from-tech-blue to-blue-900'
     },
-    {
-      name: 'Kishore S.',
-      role: 'Data Analyst',
-      bio: 'Turning raw numbers into powerful stories 📊.Driving data-driven growth with clear, actionable insights 💡.',
-      image: '/images/Kishore.jpg',
-      linkedin: 'https://www.linkedin.com/in/kishore-krish-9510bb278?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ',
-      github: 'https://github.com/kishoreShankar97',
-      gradient: 'from-tech-blue to-blue-900'
-    },
+
   ];
 
   return (
