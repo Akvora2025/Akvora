@@ -78,7 +78,7 @@ const FoundersPage = ({ setActiveSection }) => {
     <div className="App bg-white min-h-screen">
       <SEO 
         title="Akvora Founders & Leadership Team | Meet Our Founders"
-        description="Discover the visionary founders of Akvora - Aravind K. (CEO), Karthik K. (CTO), Experts in AI, full-stack development, and cloud deployment."
+        description="Discover the visionary founders of Akvora - Aravind K. (CEO) and Karthik K. (CTO). Experts in AI, full-stack development, and cloud deployment."
         keywords="akvora founders, akvora leadership, akvora team, technology founders, ai experts, full stack developers, cloud deployment experts"
         url="/founders"
         structuredData={structuredData}
@@ -131,11 +131,9 @@ const FoundersPage = ({ setActiveSection }) => {
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 lg:justify-items-center"
+            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16"
           >
-            <div className="lg:col-span-3 lg:grid lg:grid-cols-3 lg:gap-8 lg:w-full contents">
-              {/* First 3 founders */}
-              {founders.slice(0, 3).map((founder, index) => (
+              {founders.map((founder, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
@@ -208,84 +206,6 @@ const FoundersPage = ({ setActiveSection }) => {
                   </div>
                 </motion.div>
               ))}
-            </div>
-            
-            {/* Last 2 founders centered */}
-            <div className="lg:col-span-3 lg:flex lg:justify-center lg:gap-8 lg:max-w-2xl lg:mx-auto contents">
-              {founders.slice(3, 5).map((founder, index) => (
-                <motion.div
-                  key={index + 3}
-                  variants={itemVariants}
-                  className="group relative lg:flex-1 lg:max-w-sm"
-                >
-                  <div className="h-full bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center">
-                    {/* Profile Image */}
-                    <div className="relative mb-6">
-                      <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${founder.gradient} p-1 group-hover:scale-110 transition-transform duration-300`}>
-                        <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                          {founder.image ? (
-                            <img 
-                              src={founder.image} 
-                              alt={founder.name}
-                              className="w-full h-full object-cover rounded-full"
-                              onError={(e) => {
-                                e.target.style.display = 'none';
-                                e.target.nextSibling.style.display = 'flex';
-                              }}
-                            />
-                          ) : null}
-                          <div className={`w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center ${founder.image ? 'hidden' : ''}`}>
-                            <span className="text-2xl font-bold text-white">
-                              {founder.name.split(' ')[0][0]}{founder.name.split(' ')[1][0]}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Name & Role */}
-                    <h2 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-gray-900 transition-colors duration-300">
-                      {founder.name}
-                    </h2>
-                    <p className={`text-sm font-semibold mb-4 bg-gradient-to-r ${founder.gradient} bg-clip-text text-transparent`}>
-                      {founder.role}
-                    </p>
-
-                    {/* Bio */}
-                    <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                      {founder.bio}
-                    </p>
-
-                    {/* Social Links */}
-                    <div className="flex justify-center space-x-4">
-                      <motion.a
-                        href={founder.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 group/social"
-                      >
-                        <Linkedin className="w-5 h-5" />
-                      </motion.a>
-                      <motion.a
-                        href={founder.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-900 hover:text-white transition-all duration-300 group/social"
-                      >
-                        <Github className="w-5 h-5" />
-                      </motion.a>
-                    </div>
-
-                    {/* Hover gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           {/* SEO Content Section */}

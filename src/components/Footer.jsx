@@ -173,36 +173,6 @@ const Footer = ({ setActiveSection }) => {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="border-t border-gray-800 py-8"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Stay Updated</h3>
-              <p className="text-gray-400">Get the latest insights on technology and development.</p>
-            </div>
-            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-tech-blue focus:border-transparent text-white placeholder-gray-400"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-tech-blue to-tech-purple px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
-              >
-                Subscribe
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

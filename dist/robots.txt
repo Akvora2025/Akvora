@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Sitemap: https://akvora.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Sitemap: https://akvora.com/sitemap.xml
+
+User-agent: Bingbot
+Allow: /
+Sitemap: https://akvora.com/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+Sitemap: https://akvora.com/sitemap.xml
