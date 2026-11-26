@@ -63,7 +63,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
+    <section id="why-choose-us" className="py-20 lg:py-32 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-tech-blue/5 to-tech-purple/5 rounded-full blur-3xl"></div>

@@ -5,6 +5,7 @@ import { Github, Linkedin, ExternalLink } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 import SEO from './SEO';
+import { getFounderBySlug, SITE_URL } from '../data/founders';
 
 const CEOPage = ({ setActiveSection }) => {
   const ref = useRef(null);
@@ -30,41 +31,48 @@ const CEOPage = ({ setActiveSection }) => {
     }
   };
 
+  const aravind = getFounderBySlug('aravind-k');
   const ceo = {
-    name: 'Aravind K.',
-    role: 'Founder & CEO',
-    bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
-    image: '/images/Aravind.jpg',
-    linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
-    github: 'https://github.com/Aravind419',
-    gradient: 'from-tech-blue to-blue-600',
-    detailedBio: `Aravind K. is the visionary CEO and Founder of Akvora, leading the company's strategic direction and innovation initiatives. With a strong background in artificial intelligence research and solutions engineering, Aravind specializes in deploying cutting-edge AI technologies to solve complex real-world problems.
-
-As a leader in the technology industry, Aravind has extensive experience in developing and implementing AI solutions across various domains. His expertise spans machine learning, deep learning, natural language processing, and computer vision. Under his leadership, Akvora has become a trusted partner for businesses seeking to leverage AI for competitive advantage.
-
-Before founding Akvora, Aravind worked on several high-impact AI projects in both startup and enterprise environments. His research contributions have been published in leading technical journals, and he frequently speaks at industry conferences about the future of AI and its applications in business.
-
-Aravind holds a degree in Computer Science and has continued to stay at the forefront of technological advancement through continuous learning and research. His passion for innovation drives Akvora's commitment to delivering transformative technology solutions that create real value for clients.`
+    name: aravind.name,
+    role: aravind.role,
+    bio: aravind.bio,
+    image: aravind.image,
+    linkedin: aravind.linkedin,
+    github: aravind.github,
+    gradient: aravind.pageGradient,
+    detailedBio: aravind.detailedBio.join('\n\n')
   };
 
   // Structured data for the CEO page
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Aravind K.",
-    "jobTitle": "Founder & CEO",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Akvora",
-      "url": "https://akvora.com"
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": aravind.name,
+      "jobTitle": aravind.role,
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Akvora",
+        "url": SITE_URL
+      },
+      "description": aravind.bio,
+      "image": `${SITE_URL}${aravind.image}`,
+      "url": `${SITE_URL}/ceo`,
+      "knowsAbout": aravind.knowsAbout,
+      "sameAs": [
+        aravind.linkedin,
+        aravind.github
+      ]
     },
-    "description": "AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems",
-    "url": "https://akvora.com/ceo",
-    "sameAs": [
-      "https://www.linkedin.com/in/aravind-aravind/",
-      "https://github.com/Aravind419"
-    ]
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "CEO", "item": `${SITE_URL}/ceo` }
+      ]
+    }
+  ];
 
   return (
     <div className="App bg-white min-h-screen">

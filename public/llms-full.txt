@@ -1,0 +1,34 @@
+# Akvora — Full Public Company & Leadership Information
+
+Website: https://akvora.in
+Email: contactakvora@gmail.com
+Phone: +91 93619 92041, +91 80569 63761
+Location: Hosur, Bangalore, India
+
+## Mission
+Akvora bridges innovation and execution, delivering scalable, intelligent, and future-ready technology solutions that empower startups, enterprises, and professionals to grow in the digital age.
+
+## Services
+1. **Full-Stack Development**: Custom web applications, mobile app development, API development & integration, database design & optimization, and Progressive Web Apps (PWA).
+2. **AI Integration**: AI-powered chatbots, machine learning models, data analytics & insights, process automation, and natural language processing.
+3. **Deployment & Cloud**: Cloud infrastructure setup, CI/CD pipeline implementation, container orchestration, performance monitoring, and security & compliance.
+4. **Webinars, Seminars & Career Guidance**: Expert-led webinars, interactive seminars, career counseling & mentorship, skill development guidance, and industry insights & trends.
+
+## Leadership & Founders
+- **Aravind K. — Founder & CEO**
+  - Profile: https://akvora.in/founders/aravind-k
+  - CEO Page: https://akvora.in/ceo
+  - Summary: AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems. Expertise spans machine learning, deep learning, natural language processing, and computer vision.
+  - LinkedIn: https://www.linkedin.com/in/aravind-aravind/
+  - GitHub: https://github.com/Aravind419
+
+- **Karthik K. — Founder & CTO**
+  - Profile: https://akvora.in/founders/karthik-k
+  - Summary: Tech enthusiast and full-stack architect with experience in building scalable digital solutions, end-to-end web/mobile applications, APIs, and cloud infrastructure.
+  - LinkedIn: https://www.linkedin.com/in/karthik-k-573459278
+  - GitHub: https://github.com/Karthik0484
+
+## Social Channels
+- LinkedIn: https://www.linkedin.com/company/akvora
+- Instagram: https://www.instagram.com/akvora_solutions/
+- WhatsApp Channel: https://whatsapp.com/channel/0029VbBeQ8n65yDKjr7Q703r

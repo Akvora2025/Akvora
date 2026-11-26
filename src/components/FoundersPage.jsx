@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Github, Linkedin, ArrowRight, ExternalLink } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 import SEO from './SEO';
+import { foundersData, SITE_URL } from '../data/founders';
 
 const FoundersPage = ({ setActiveSection }) => {
   const ref = useRef(null);
@@ -30,49 +32,39 @@ const FoundersPage = ({ setActiveSection }) => {
     }
   };
 
-  const founders = [
-    {
-      name: 'Aravind K.',
-      role: 'Founder & CEO',
-      bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
-      image: '/images/aravind.jpeg',
-      linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
-      github: 'https://github.com/Aravind419',
-      gradient: 'from-tech-blue to-blue-600'
-    },
-    {
-      name: 'Karthik K.',
-      role: 'Founder & CTO',
-      bio: 'Tech enthusiast and full-stack architect with experience in building scalable digital solutions.',
-      image: '/images/karthik.jpg',
-      linkedin: 'https://www.linkedin.com/in/karthik-k-573459278',
-      github: 'https://github.com/Karthik0484',
-      gradient: 'from-tech-purple to-purple-600'
-    },
+  const founders = foundersData;
 
-  
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Akvora Founders and Leadership Team',
+      description: 'Meet the visionary founders and leadership team of Akvora',
+      itemListElement: founders.map((founder, index) => ({
+        '@type': 'Person',
+        position: index + 1,
+        name: founder.name,
+        jobTitle: founder.role,
+        description: founder.bio,
+        image: `${SITE_URL}${founder.image}`,
+        url: `${SITE_URL}/founders/${founder.slug}`,
+        sameAs: [founder.linkedin, founder.github],
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Akvora',
+          url: SITE_URL
+        }
+      }))
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Founders', item: `${SITE_URL}/founders` }
+      ]
+    }
   ];
-
-  // Structured data for the page
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Akvora Founders and Leadership Team",
-    "description": "Meet the visionary founders and leadership team of Akvora",
-    "itemListElement": founders.map((founder, index) => ({
-      "@type": "Person",
-      "position": index + 1,
-      "name": founder.name,
-      "jobTitle": founder.role,
-      "description": founder.bio,
-      "url": "https://akvora.com/founders",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Akvora",
-        "url": "https://akvora.com"
-      }
-    }))
-  };
 
   return (
     <div className="App bg-white min-h-screen">
@@ -178,11 +170,12 @@ const FoundersPage = ({ setActiveSection }) => {
                     </p>
 
                     {/* Social Links */}
-                    <div className="flex justify-center space-x-4">
+                    <div className="flex justify-center space-x-4 mb-5">
                       <motion.a
                         href={founder.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`${founder.name} LinkedIn profile`}
                         whileHover={{ scale: 1.1, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 group/social"
@@ -193,6 +186,7 @@ const FoundersPage = ({ setActiveSection }) => {
                         href={founder.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`${founder.name} GitHub profile`}
                         whileHover={{ scale: 1.1, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-900 hover:text-white transition-all duration-300 group/social"
@@ -200,6 +194,14 @@ const FoundersPage = ({ setActiveSection }) => {
                         <Github className="w-5 h-5" />
                       </motion.a>
                     </div>
+
+                    <Link
+                      to={`/founders/${founder.slug}`}
+                      className="inline-flex items-center space-x-1.5 text-sm font-semibold text-tech-blue hover:text-tech-purple transition-colors"
+                    >
+                      <span>View Full Profile</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
 
                     {/* Hover gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>

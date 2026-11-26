@@ -1,0 +1,19 @@
+# Akvora
+
+> Akvora is a technology solutions company delivering full-stack development, AI integration, cloud deployment, and technical education (webinars, seminars, and career guidance).
+
+## Core Pages
+- [Home](https://akvora.in/): Overview of Akvora, services, leadership, and contact.
+- [About Us](https://akvora.in/about): Company mission, values, and digital transformation focus.
+- [Services](https://akvora.in/services): Full-Stack Development, AI Integration, Deployment & Cloud, and Webinars, Seminars & Career Guidance.
+- [Founders](https://akvora.in/founders): Meet the founders of Akvora — Aravind K. and Karthik K.
+- [Aravind K. — Founder & CEO](https://akvora.in/founders/aravind-k): Detailed profile of Aravind K., AI researcher and solutions engineer.
+- [Karthik K. — Founder & CTO](https://akvora.in/founders/karthik-k): Detailed profile of Karthik K., full-stack architect.
+- [CEO Leadership](https://akvora.in/ceo): Leadership overview for CEO Aravind K.
+- [Contact](https://akvora.in/contact): Project inquiry form and direct contact channels.
+
+## Contact
+- Email: contactakvora@gmail.com
+- Phone: +91 93619 92041, +91 80569 63761
+- Location: Hosur, Bangalore, India
+- LinkedIn: https://www.linkedin.com/company/akvora

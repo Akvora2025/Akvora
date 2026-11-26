@@ -129,6 +129,8 @@ const Contact = () => {
               
               {state.succeeded && (
                 <motion.div
+                  role="status"
+                  aria-live="polite"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3"
@@ -140,6 +142,8 @@ const Contact = () => {
 
               {state.errors && state.errors.length > 0 && (
                 <motion.div
+                  role="alert"
+                  aria-live="assertive"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-3"
@@ -158,6 +162,7 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
+                    autoComplete="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
@@ -180,6 +185,7 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -218,6 +224,7 @@ const Contact = () => {
 
                 <motion.button
                   type="submit"
+                  aria-label="Send Message"
                   disabled={state.submitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

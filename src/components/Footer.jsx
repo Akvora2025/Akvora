@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, MessageCircle, Mail, ArrowUp } from 'lucide-react';
 
 const Footer = ({ setActiveSection }) => {
@@ -10,22 +11,23 @@ const Footer = ({ setActiveSection }) => {
 
   const footerLinks = {
     services: [
-      { name: 'Full-Stack Development', href: '#' },
-      { name: 'AI Integration', href: '#' },
-      { name: 'Cloud Deployment', href: '#' },
-      { name: 'Consulting', href: '#' }
+      { name: 'Full-Stack Development', to: '/services' },
+      { name: 'AI Integration', to: '/services' },
+      { name: 'Cloud Deployment', to: '/services' },
+      { name: 'Consulting', to: '/contact' }
     ],
     company: [
-      { name: 'About Us', section: 'about' },
-      { name: 'Our Services', section: 'services' },
-      { name: 'Contact', section: 'contact' },
-      { name: 'Blog', href: '#' }
+      { name: 'About Us', section: 'about', to: '/about' },
+      { name: 'Our Services', section: 'services', to: '/services' },
+      { name: 'Founders', section: 'founders', to: '/founders' },
+      { name: 'CEO', section: 'ceo', to: '/ceo' },
+      { name: 'Contact', section: 'contact', to: '/contact' }
     ],
     resources: [
-      { name: 'Documentation', href: '#' },
-      { name: 'Case Studies', href: '#' },
-      { name: 'API Reference', href: '#' },
-      { name: 'Support', href: '#' }
+      { name: 'Aravind K. (CEO)', to: '/founders/aravind-k' },
+      { name: 'Karthik K. (CTO)', to: '/founders/karthik-k' },
+      { name: 'Sitemap', href: '/sitemap.xml' },
+      { name: 'LLMs Info', href: '/llms.txt' }
     ]
   };
 
@@ -102,12 +104,12 @@ const Footer = ({ setActiveSection }) => {
                 <ul className="space-y-3">
                   {footerLinks.services.map((link, index) => (
                     <li key={index}>
-                      <a
-                        href={link.href}
+                      <Link
+                        to={link.to}
                         className="text-gray-400 hover:text-white transition-colors duration-300"
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -126,21 +128,13 @@ const Footer = ({ setActiveSection }) => {
                 <ul className="space-y-3">
                   {footerLinks.company.map((link, index) => (
                     <li key={index}>
-                      {link.section ? (
-                        <button
-                          onClick={() => setActiveSection && setActiveSection(link.section)}
-                          className="text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer"
-                        >
-                          {link.name}
-                        </button>
-                      ) : (
-                        <a
-                          href={link.href}
-                          className="text-gray-400 hover:text-white transition-colors duration-300"
-                        >
-                          {link.name}
-                        </a>
-                      )}
+                      <Link
+                        to={link.to}
+                        onClick={() => setActiveSection && link.section && setActiveSection(link.section)}
+                        className="text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer"
+                      >
+                        {link.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -159,12 +153,21 @@ const Footer = ({ setActiveSection }) => {
                 <ul className="space-y-3">
                   {footerLinks.resources.map((link, index) => (
                     <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors duration-300"
-                      >
-                        {link.name}
-                      </a>
+                      {link.to ? (
+                        <Link
+                          to={link.to}
+                          className="text-gray-400 hover:text-white transition-colors duration-300"
+                        >
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-gray-400 hover:text-white transition-colors duration-300"
+                        >
+                          {link.name}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

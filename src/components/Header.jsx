@@ -23,11 +23,11 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
   }, []);
 
   const navItems = [
-    { name: 'Home', section: 'home' },
-    { name: 'About', section: 'about' },
-    { name: 'Services', section: 'services' },
-    { name: 'Founders', section: 'founders' },
-    { name: 'Contact', section: 'contact' },
+    { name: 'Home', section: 'home', path: '/' },
+    { name: 'About', section: 'about', path: '/about' },
+    { name: 'Services', section: 'services', path: '/services' },
+    { name: 'Founders', section: 'founders', path: '/founders' },
+    { name: 'Contact', section: 'contact', path: '/contact' },
   ];
 
   return (
@@ -69,10 +69,11 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <button
+            {navItems.map((item) => (
+              <Link
                 key={item.name}
-                onClick={() => setActiveSection(item.section)}
+                to={item.path}
+                onClick={() => setActiveSection && setActiveSection(item.section)}
                 className={`font-medium cursor-pointer transition-all duration-200 relative group px-1 py-2 ${
                   activeSection === item.section
                     ? "text-tech-blue scale-105"
@@ -85,7 +86,7 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
                       ? "w-full opacity-100"
                       : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
                   }`}></span>
-              </button>
+              </Link>
             ))}
           </motion.nav>
 
@@ -95,14 +96,15 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="hidden lg:block">
-            <button
+            <Link
+              to="/contact"
               onClick={() => {
-                setActiveSection("contact");
+                setActiveSection && setActiveSection("contact");
                 setIsOpen(false);
               }}
               className="bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 cursor-pointer inline-block neon-glow">
               Contact
-            </button>
+            </Link>
           </motion.div>
 
           {/* Mobile menu button */}
@@ -125,10 +127,11 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
           className="lg:hidden overflow-hidden">
           <div className="py-4 space-y-4 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-lg border border-gray-200">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.name}
+                to={item.path}
                 onClick={() => {
-                  setActiveSection(item.section);
+                  setActiveSection && setActiveSection(item.section);
                   setIsOpen(false);
                 }}
                 className={`block w-full text-left px-6 py-3 font-medium cursor-pointer transition-all duration-200 rounded-lg mx-2 ${
@@ -137,17 +140,18 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
                     : "text-gray-700 hover:text-tech-blue hover:bg-gray-50"
                 }`}>
                 {item.name}
-              </button>
+              </Link>
             ))}
             <div className="px-6 pt-2">
-              <button
+              <Link
+                to="/contact"
                 onClick={() => {
-                  setActiveSection("contact");
+                  setActiveSection && setActiveSection("contact");
                   setIsOpen(false);
                 }}
                 className="bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-3 rounded-full font-semibold text-center cursor-pointer inline-block w-full neon-glow">
                 Contact
-              </button>
+              </Link>
             </div>
           </div>
         </motion.div>

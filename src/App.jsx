@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -11,14 +11,16 @@ import CallToAction from './components/CallToAction';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SEO from './components/SEO';
+import { foundersData, SITE_URL } from './data/founders';
 
 function App({ initialSection }) {
-  // Get current location for route-based section selection
   const location = useLocation();
-  
-  // Determine active section based on route or initial prop
+
   const getDefaultSection = () => {
     if (initialSection) return initialSection;
+    if (location.pathname === '/about') return 'about';
+    if (location.pathname === '/services') return 'services';
+    if (location.pathname === '/contact') return 'contact';
     if (location.pathname === '/founders') return 'founders';
     if (location.pathname === '/ceo') return 'ceo';
     return 'home';
@@ -27,83 +29,116 @@ function App({ initialSection }) {
   const [activeSection, setActiveSection] = useState(getDefaultSection());
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Handle section change with transition state and scroll to top
+  useEffect(() => {
+    const nextSection =
+      initialSection ||
+      (location.pathname === '/about'
+        ? 'about'
+        : location.pathname === '/services'
+        ? 'services'
+        : location.pathname === '/contact'
+        ? 'contact'
+        : location.pathname === '/founders'
+        ? 'founders'
+        : location.pathname === '/ceo'
+        ? 'ceo'
+        : 'home');
+    setActiveSection(nextSection);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname, initialSection]);
+
   const handleSectionChange = (section) => {
-    // Special case: always scroll to top when clicking Home, even if already on home
     if (section === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (section === activeSection) return; // Exit early only if already on home after scrolling
+      if (section === activeSection) return;
     }
-    
+
     if (section === activeSection) return;
-    
+
     setIsTransitioning(true);
-    
-    // Scroll to top immediately for better UX
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Small delay to allow scroll to start, then change section
+
     setTimeout(() => {
       setActiveSection(section);
     }, 50);
-    
-    // Reset transition state after animation
+
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 350); // Match the new faster animation duration
+    }, 350);
   };
 
-  // Section configuration
   const sections = {
-    home: { 
+    home: {
       components: [Hero, About, Services, WhyChooseUs, Founders, CallToAction, Contact],
-      showAll: true 
+      showAll: true
     },
-    about: { 
+    about: {
       components: [About],
-      showAll: false 
+      showAll: false
     },
-    services: { 
+    services: {
       components: [Services],
-      showAll: false 
+      showAll: false
     },
-    founders: { 
+    founders: {
       components: [Founders],
-      showAll: false 
+      showAll: false
     },
-    ceo: { 
+    ceo: {
       components: [],
-      showAll: false 
+      showAll: false
     },
-    contact: { 
+    contact: {
       components: [Contact],
-      showAll: false 
+      showAll: false
     }
   };
 
-  // Page transition variants with optimized, faster animations
-  const pageVariants = {
-    initial: {
-      opacity: 0,
-      y: 15,
-      scale: 0.98
+  const seoBySection = {
+    home: {
+      title: 'Akvora | Technology Solutions, AI Integration & Software Development',
+      description:
+        'Akvora delivers modern technology solutions, full-stack development, AI integration, cloud deployment and technical education for businesses and professionals.',
+      keywords:
+        'akvora, akvora technologies, akvora technology solutions, akvora software development, akvora ai solutions, akvora web development, akvora cloud solutions, aravind k, karthik k',
+      url: '/'
     },
-    in: {
-      opacity: 1,
-      y: 0,
-      scale: 1
+    about: {
+      title: 'About Akvora | Mission, Values & Technology Leadership',
+      description:
+        'Learn about Akvora, a technology solutions company bridging innovation and execution with scalable full-stack, AI, and cloud solutions.',
+      keywords: 'about akvora, akvora technology solutions, akvora mission, akvora company',
+      url: '/about'
     },
-    out: {
-      opacity: 0,
-      y: -10,
-      scale: 1.01
+    services: {
+      title: 'Services | Full-Stack Development, AI Integration & Cloud — Akvora',
+      description:
+        'Explore Akvora services: Full-Stack Development, AI Integration, Deployment & Cloud infrastructure, and Webinars, Seminars & Career Guidance.',
+      keywords:
+        'akvora services, full-stack development, ai integration, cloud deployment, webinars seminars career guidance',
+      url: '/services'
+    },
+    contact: {
+      title: 'Contact Akvora | Start Your Technology Project',
+      description:
+        'Get in touch with Akvora for full-stack development, AI integration, cloud deployment, or technical mentorship. Reach us via form, email, or phone.',
+      keywords: 'contact akvora, akvora email, akvora phone, start project akvora',
+      url: '/contact'
     }
+  };
+
+  const currentSeo = seoBySection[activeSection] || seoBySection.home;
+
+  const pageVariants = {
+    initial: { opacity: 0, y: 15, scale: 0.98 },
+    in: { opacity: 1, y: 0, scale: 1 },
+    out: { opacity: 0, y: -10, scale: 1.01 }
   };
 
   const pageTransition = {
     type: 'tween',
-    ease: [0.25, 0.46, 0.45, 0.94], // Optimized cubic-bezier for smooth, responsive feel
-    duration: 0.35 // Faster 350ms duration for responsive performance
+    ease: [0.25, 0.46, 0.45, 0.94],
+    duration: 0.35
   };
 
   const renderSection = () => {
@@ -113,7 +148,6 @@ function App({ initialSection }) {
     const { components, showAll } = currentSection;
 
     if (showAll) {
-      // Home page - show all sections with continuous scroll
       return (
         <motion.div
           key={activeSection}
@@ -131,15 +165,13 @@ function App({ initialSection }) {
                 key={index}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.3, 
-                  delay: index * 0.05, // Faster stagger timing
-                  ease: [0.4, 0.0, 0.2, 1] // Consistent modern easing
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.05,
+                  ease: [0.4, 0.0, 0.2, 1]
                 }}
               >
-                {isHero ? (
-                  <Component setActiveSection={handleSectionChange} />
-                ) : Component === CallToAction ? (
+                {isHero || Component === CallToAction ? (
                   <Component setActiveSection={handleSectionChange} />
                 ) : (
                   <Component />
@@ -149,53 +181,127 @@ function App({ initialSection }) {
           })}
         </motion.div>
       );
-    } else {
-      // Individual section pages
-      const Component = components[0];
-      if (Component) {
-        return (
-          <motion.div
-            key={activeSection}
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-            transition={pageTransition}
-            className="min-h-screen flex flex-col"
-          >
-            <Component />
-          </motion.div>
-        );
-      }
-      // For sections without components (like CEO), return null
-      return null;
     }
+
+    const Component = components[0];
+    if (Component) {
+      return (
+        <motion.div
+          key={activeSection}
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+          className="min-h-screen flex flex-col"
+        >
+          <Component />
+        </motion.div>
+      );
+    }
+    return null;
   };
 
-  // Structured data for the main page
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Akvora",
-    "url": "https://akvora.com",
-    "logo": "https://akvora.com/transpareny_logo.png",
-    "sameAs": [
-      "https://www.linkedin.com/company/akvora"
-    ],
-    "description": "Akvora delivers cutting-edge technology solutions including full-stack development, AI integration, and cloud deployment."
-  };
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Akvora',
+      url: SITE_URL,
+      logo: `${SITE_URL}/transpareny_logo.png`,
+      description:
+        'Akvora delivers cutting-edge technology solutions including full-stack development, AI integration, cloud deployment, and technical education.',
+      email: 'contactakvora@gmail.com',
+      telephone: ['+91-93619-92041', '+91-80569-63761'],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Hosur, Bangalore',
+        addressCountry: 'IN'
+      },
+      founder: foundersData.map((f) => ({
+        '@type': 'Person',
+        name: f.name,
+        jobTitle: f.role,
+        url: `${SITE_URL}/founders/${f.slug}`,
+        sameAs: [f.linkedin, f.github]
+      })),
+      sameAs: [
+        'https://www.linkedin.com/company/akvora',
+        'https://www.instagram.com/akvora_solutions/',
+        'https://whatsapp.com/channel/0029VbBeQ8n65yDKjr7Q703r'
+      ]
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Akvora',
+      url: SITE_URL
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: currentSeo.title,
+      description: currentSeo.description,
+      url: `${SITE_URL}${currentSeo.url === '/' ? '/' : currentSeo.url}`,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'Akvora',
+        url: SITE_URL
+      }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Akvora Services',
+      itemListElement: [
+        {
+          '@type': 'Service',
+          position: 1,
+          name: 'Full-Stack Development',
+          description:
+            'Responsive, scalable, and custom web & mobile applications tailored to your business needs.',
+          provider: { '@type': 'Organization', name: 'Akvora', url: SITE_URL }
+        },
+        {
+          '@type': 'Service',
+          position: 2,
+          name: 'AI Integration',
+          description:
+            'Intelligent automation, chatbots, and data-driven insights for better business decisions.',
+          provider: { '@type': 'Organization', name: 'Akvora', url: SITE_URL }
+        },
+        {
+          '@type': 'Service',
+          position: 3,
+          name: 'Deployment & Cloud',
+          description:
+            'Fast, secure, and scalable cloud infrastructure with CI/CD pipelines for seamless deployment.',
+          provider: { '@type': 'Organization', name: 'Akvora', url: SITE_URL }
+        },
+        {
+          '@type': 'Service',
+          position: 4,
+          name: 'Webinars, Seminars & Career Guidance',
+          description:
+            'Interactive learning sessions, expert talks, and personalized career guidance to help students and professionals achieve their goals.',
+          provider: { '@type': 'Organization', name: 'Akvora', url: SITE_URL }
+        }
+      ]
+    }
+  ];
 
   return (
     <div className="App bg-white">
-      <SEO 
-        title="Akvora Technology Solutions"
-        description="Akvora delivers cutting-edge technology solutions including full-stack development, AI integration, and cloud deployment. Transform your business with our expert team."
-        keywords="akvora, technology solutions, full-stack development, ai integration, cloud deployment, software development, web development"
+      <SEO
+        title={currentSeo.title}
+        description={currentSeo.description}
+        keywords={currentSeo.keywords}
+        url={currentSeo.url}
         structuredData={structuredData}
       />
-      
-      <Header 
-        activeSection={activeSection} 
+
+      <Header
+        activeSection={activeSection}
         setActiveSection={handleSectionChange}
         isTransitioning={isTransitioning}
       />

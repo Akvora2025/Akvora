@@ -1,90 +1,63 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { SITE_URL } from '../data/founders';
 
-const SEO = ({ 
-  title = "Akvora - Technology Solutions | Founders & Leadership Team",
-  description = "Meet the visionary founders of Akvora - Aravind K. (CEO) and Karthik K. (CTO). Experts in full-stack development, AI integration, and cloud deployment.",
-  keywords = "akvora founders, akvora ceo, akvora leadership, akvora team, technology founders, ai experts, full stack developers",
-  image = "https://akvora.com/public/images",
-  url = "",
+const SEO = ({
+  title = 'Akvora | Technology Solutions, AI Integration & Software Development',
+  description = 'Akvora delivers modern technology solutions, full-stack development, AI integration, cloud deployment and technical education for businesses and professionals.',
+  keywords = 'akvora, akvora technologies, akvora technology solutions, full-stack development, ai integration, cloud deployment, aravind k, karthik k',
+  image = `${SITE_URL}/transpareny_logo.png`,
+  url = '',
+  robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   structuredData = null
 }) => {
   const location = useLocation();
 
   useEffect(() => {
-    // Update meta tags
+    const resolvedPath = url !== '' ? url : location.pathname;
+    const canonicalUrl = `${SITE_URL}${resolvedPath === '/' ? '/' : resolvedPath}`;
+
     document.title = title;
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description);
-    }
 
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', keywords);
-    }
+    const setMeta = (selector, attr, value) => {
+      const el = document.querySelector(selector);
+      if (el) el.setAttribute(attr, value);
+    };
 
-    // Update Open Graph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', title);
-    }
+    setMeta('meta[name="title"]', 'content', title);
+    setMeta('meta[name="description"]', 'content', description);
+    setMeta('meta[name="keywords"]', 'content', keywords);
+    setMeta('meta[name="robots"]', 'content', robots);
 
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute('content', description);
-    }
+    setMeta('meta[property="og:title"]', 'content', title);
+    setMeta('meta[property="og:description"]', 'content', description);
+    setMeta('meta[property="og:image"]', 'content', image);
+    setMeta('meta[property="og:url"]', 'content', canonicalUrl);
 
-    const ogImage = document.querySelector('meta[property="og:image"]');
-    if (ogImage) {
-      ogImage.setAttribute('content', image);
-    }
+    setMeta('meta[property="twitter:title"]', 'content', title);
+    setMeta('meta[property="twitter:description"]', 'content', description);
+    setMeta('meta[property="twitter:image"]', 'content', image);
+    setMeta('meta[property="twitter:url"]', 'content', canonicalUrl);
 
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) {
-      ogUrl.setAttribute('content', `https://akvora.com${url || location.pathname}`);
-    }
+    setMeta('link[rel="canonical"]', 'href', canonicalUrl);
 
-    // Update Twitter tags
-    const twitterTitle = document.querySelector('meta[property="twitter:title"]');
-    if (twitterTitle) {
-      twitterTitle.setAttribute('content', title);
-    }
-
-    const twitterDescription = document.querySelector('meta[property="twitter:description"]');
-    if (twitterDescription) {
-      twitterDescription.setAttribute('content', description);
-    }
-
-    const twitterImage = document.querySelector('meta[property="twitter:image"]');
-    if (twitterImage) {
-      twitterImage.setAttribute('content', image);
-    }
-
-    // Update canonical URL
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-      canonicalLink.setAttribute('href', `https://akvora.com${url || location.pathname}`);
-    }
-    
-    // Update or add structured data
     if (structuredData) {
-      // Remove existing structured data scripts
       const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
-      existingScripts.forEach(script => {
+      existingScripts.forEach((script) => {
         if (script.textContent.includes('schema.org')) {
           script.remove();
         }
       });
-      
-      // Add new structured data
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(structuredData);
-      document.head.appendChild(script);
+
+      const items = Array.isArray(structuredData) ? structuredData : [structuredData];
+      items.forEach((item) => {
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(item);
+        document.head.appendChild(script);
+      });
     }
-  }, [title, description, keywords, image, url, location.pathname, structuredData]);
+  }, [title, description, keywords, image, url, robots, location.pathname, structuredData]);
 
   return null;
 };

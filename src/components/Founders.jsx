@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Github, Linkedin, ArrowRight } from 'lucide-react';
+import { foundersData } from '../data/founders';
 
 
 const Founders = () => {
@@ -28,29 +30,10 @@ const Founders = () => {
     }
   };
 
-  const founders = [
-    {
-      name: 'Aravind K.',
-      role: 'Founder & CEO',
-      bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
-      image: '/images/aravind.jpeg',
-      linkedin: 'https://www.linkedin.com/in/aravind-aravind/',
-      github: 'https://github.com/Aravind419',
-      gradient: 'from-tech-green to-green-800'
-    },
-    {
-      name: 'Karthik K.',
-      role: 'Founder & CTO',
-      bio: 'Tech enthusiast and full-stack architect with experience in building scalable digital solutions.',
-      image: '/images/karthik.jpg',
-      linkedin: 'https://www.linkedin.com/in/karthik-k-573459278',
-      github: 'https://github.com/Karthik0484',
-      gradient: 'from-tech-purple to-purple-600'
-    },
-  ];
+  const founders = foundersData;
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+    <section id="founders" className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-20 w-40 h-40 bg-gradient-to-br from-tech-blue/10 to-tech-purple/10 rounded-full blur-3xl"></div>
@@ -107,7 +90,10 @@ const Founders = () => {
                       {founder.image ? (
                         <img 
                           src={founder.image} 
-                          alt={founder.name}
+                          alt={`${founder.name} - ${founder.role} at Akvora`}
+                          loading="lazy"
+                          width="96"
+                          height="96"
                           className="w-full h-full object-cover rounded-full"
                           onError={(e) => {
                             e.target.style.display = 'none';
@@ -138,11 +124,12 @@ const Founders = () => {
                 </p>
 
                 {/* Social Links */}
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-center space-x-4 mb-5">
                   <motion.a
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${founder.name} LinkedIn profile`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 group/social"
@@ -153,6 +140,7 @@ const Founders = () => {
                     href={founder.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${founder.name} GitHub profile`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-900 hover:text-white transition-all duration-300 group/social"
@@ -160,6 +148,14 @@ const Founders = () => {
                     <Github className="w-5 h-5" />
                   </motion.a>
                 </div>
+
+                <Link
+                  to={`/founders/${founder.slug}`}
+                  className="inline-flex items-center space-x-1.5 text-sm font-semibold text-tech-blue hover:text-tech-purple transition-colors"
+                >
+                  <span>View Profile</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
 
                 {/* Hover gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
