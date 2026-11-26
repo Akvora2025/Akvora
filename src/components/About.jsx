@@ -51,7 +51,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 lg:py-32 bg-white relative overflow-hidden">
+    <section id="about" className="scroll-mt-[var(--header-height)] py-14 lg:py-20 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-20 w-40 h-40 bg-gradient-to-br from-tech-blue/10 to-tech-purple/10 rounded-full blur-3xl"></div>
@@ -63,32 +63,32 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-16"
+          className="text-center mb-10 lg:mb-12"
         >
-          <motion.div variants={itemVariants} className="mb-4">
-            <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-2 rounded-full text-sm font-semibold">
-              About AKvora
+          <motion.div variants={itemVariants} className="mb-3">
+            <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-5 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
+              About Akvora
             </span>
           </motion.div>
           
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl md:text-4xl font-bold mb-4"
           >
-            Why Choose <span className="gradient-text">AKvora</span>?
+            Why Choose <span className="gradient-text">Akvora</span>?
           </motion.h2>
           
           <motion.p 
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            AKvora is a technology solutions company that bridges innovation and execution. 
+            Akvora is a technology solutions company that bridges innovation and execution. 
             Our mission is to deliver scalable, intelligent, and future-ready solutions that 
             empower businesses to grow in the digital age.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center mb-12 lg:mb-14">
           {/* Content */}
           <motion.div
             variants={containerVariants}
@@ -113,7 +113,7 @@ const About = () => {
               variants={itemVariants}
               className="text-gray-600 mb-8 leading-relaxed"
             >
-              At AKvora, we combine technical expertise with business acumen to deliver solutions that not only meet your current needs but also position you for future growth. From concept to deployment, we're with you every step of the way.
+              At Akvora, we combine technical expertise with business acumen to deliver solutions that not only meet your current needs but also position you for future growth. From concept to deployment, we're with you every step of the way.
             </motion.p>
 
             <motion.div 

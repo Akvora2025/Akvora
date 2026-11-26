@@ -44,7 +44,6 @@ function App({ initialSection }) {
         ? 'ceo'
         : 'home');
     setActiveSection(nextSection);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname, initialSection]);
 
   const handleSectionChange = (section) => {
@@ -306,7 +305,13 @@ function App({ initialSection }) {
         isTransitioning={isTransitioning}
       />
       <main className="relative overflow-hidden">
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence
+          mode="wait"
+          initial={false}
+          onExitComplete={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          }}
+        >
           {renderSection()}
         </AnimatePresence>
       </main>

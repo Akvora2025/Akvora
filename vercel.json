@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/founders/aravind-k",
+      "destination": "/founders/aravind",
+      "permanent": true
+    },
+    {
+      "source": "/founders/karthik-k",
+      "destination": "/founders/karthik",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.).*)",

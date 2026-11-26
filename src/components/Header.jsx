@@ -73,7 +73,11 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setActiveSection && setActiveSection(item.section)}
+                onClick={() => {
+                  if (activeSection === item.section) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
                 className={`font-medium cursor-pointer transition-all duration-200 relative group px-1 py-2 ${
                   activeSection === item.section
                     ? "text-tech-blue scale-105"
@@ -99,8 +103,10 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
             <Link
               to="/contact"
               onClick={() => {
-                setActiveSection && setActiveSection("contact");
                 setIsOpen(false);
+                if (activeSection === "contact") {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
               className="bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 cursor-pointer inline-block neon-glow">
               Contact
@@ -131,8 +137,10 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
                 key={item.name}
                 to={item.path}
                 onClick={() => {
-                  setActiveSection && setActiveSection(item.section);
                   setIsOpen(false);
+                  if (activeSection === item.section) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
                 }}
                 className={`block w-full text-left px-6 py-3 font-medium cursor-pointer transition-all duration-200 rounded-lg mx-2 ${
                   activeSection === item.section
@@ -146,8 +154,10 @@ const Header = ({ activeSection, setActiveSection, isTransitioning }) => {
               <Link
                 to="/contact"
                 onClick={() => {
-                  setActiveSection && setActiveSection("contact");
                   setIsOpen(false);
+                  if (activeSection === "contact") {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
                 }}
                 className="bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-3 rounded-full font-semibold text-center cursor-pointer inline-block w-full neon-glow">
                 Contact

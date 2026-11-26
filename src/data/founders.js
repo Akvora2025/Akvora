@@ -1,8 +1,14 @@
 export const SITE_URL = 'https://akvora.in';
 
+export const COMPANY_LOCATION = {
+  label: 'Hosur, Bangalore',
+  fullLabel: 'Hosur, Bangalore, India',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hosur%2C+Bangalore'
+};
+
 export const foundersData = [
   {
-    slug: 'aravind-k',
+    slug: 'aravind',
     name: 'Aravind K.',
     role: 'Founder & CEO',
     bio: 'AI researcher and solutions engineer, passionate about deploying AI to solve real-world problems',
@@ -28,7 +34,7 @@ export const foundersData = [
     isCEO: true
   },
   {
-    slug: 'karthik-k',
+    slug: 'karthik',
     name: 'Karthik K.',
     role: 'Founder & CTO',
     bio: 'Tech enthusiast and full-stack architect with experience in building scalable digital solutions.',

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, ExternalLink } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
@@ -31,7 +32,7 @@ const CEOPage = ({ setActiveSection }) => {
     }
   };
 
-  const aravind = getFounderBySlug('aravind-k');
+  const aravind = getFounderBySlug('aravind');
   const ceo = {
     name: aravind.name,
     role: aravind.role,
@@ -270,18 +271,13 @@ const CEOPage = ({ setActiveSection }) => {
               Interested in discussing how Akvora can help transform your business through technology? 
               Reach out to connect with our leadership team.
             </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 text-tech-blue font-semibold cursor-pointer"
-              onClick={() => setActiveSection && setActiveSection('contact')}
+            <Link
+              to="/contact"
+              className="inline-flex items-center space-x-2 text-tech-blue font-semibold hover:text-tech-purple transition-colors cursor-pointer"
             >
-        
-                <span>Contact Akvora Leadership</span>
-                <ExternalLink className="w-4 h-4" />
-             
+              <span>Contact Akvora Leadership</span>
               <ExternalLink className="w-4 h-4" />
-            </motion.div>
+            </Link>
           </motion.div>
         </div>
       </section>

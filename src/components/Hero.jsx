@@ -3,7 +3,7 @@ import { ArrowRight, Sparkles, Zap, Cloud } from 'lucide-react';
 
 const Hero = ({ setActiveSection }) => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 pt-20 lg:pt-24">
+    <section id="home" className="min-h-[calc(100dvh-var(--header-height))] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 pt-[calc(var(--header-height)+1.25rem)] pb-12">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-tech-blue/20 to-tech-purple/20 rounded-full blur-3xl animate-float"></div>
@@ -23,22 +23,14 @@ const Hero = ({ setActiveSection }) => {
             className="text-center lg:text-left"
           >
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1, ease: [0.4, 0.0, 0.2, 1] }}
-              className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 mb-6 shadow-sm"
-            >
-              <Sparkles className="w-4 h-4 text-tech-purple" />
-              <span className="text-sm font-medium text-gray-700">Modern Technology Solutions</span>
-            </motion.div>
+           
 
             {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15, ease: [0.4, 0.0, 0.2, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4"
             >
               Building Smarter Solutions with{' '}
               <span className="gradient-text">Full-Stack, AI & Deployment</span>
@@ -49,7 +41,7 @@ const Hero = ({ setActiveSection }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.4, 0.0, 0.2, 1] }}
-              className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0"
+              className="text-base md:text-lg text-gray-600 mb-6 max-w-xl mx-auto lg:mx-0"
             >
               At Akvora, we help startups and enterprises accelerate growth with modern web solutions, AI-powered automation, and seamless cloud deployment.
             </motion.p>
@@ -81,7 +73,7 @@ const Hero = ({ setActiveSection }) => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200"
+              className="grid grid-cols-3 gap-6 mt-8 pt-6 border-t border-gray-200"
             >
               <div className="text-center">
                 <div className="text-2xl font-bold gradient-text">5+</div>

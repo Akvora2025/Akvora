@@ -7,8 +7,8 @@
 - [About Us](https://akvora.in/about): Company mission, values, and digital transformation focus.
 - [Services](https://akvora.in/services): Full-Stack Development, AI Integration, Deployment & Cloud, and Webinars, Seminars & Career Guidance.
 - [Founders](https://akvora.in/founders): Meet the founders of Akvora — Aravind K. and Karthik K.
-- [Aravind K. — Founder & CEO](https://akvora.in/founders/aravind-k): Detailed profile of Aravind K., AI researcher and solutions engineer.
-- [Karthik K. — Founder & CTO](https://akvora.in/founders/karthik-k): Detailed profile of Karthik K., full-stack architect.
+- [Aravind K. — Founder & CEO](https://akvora.in/founders/aravind): Detailed profile of Aravind K., AI researcher and solutions engineer.
+- [Karthik K. — Founder & CTO](https://akvora.in/founders/karthik): Detailed profile of Karthik K., full-stack architect.
 - [CEO Leadership](https://akvora.in/ceo): Leadership overview for CEO Aravind K.
 - [Contact](https://akvora.in/contact): Project inquiry form and direct contact channels.
 

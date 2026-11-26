@@ -15,7 +15,7 @@ const CallToAction = ({ setActiveSection }) => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
+    <section className="py-14 lg:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-20 w-64 h-64 bg-gradient-to-br from-neon-green/20 to-tech-green/20 rounded-full blur-3xl animate-pulse"></div>
@@ -29,7 +29,7 @@ const CallToAction = ({ setActiveSection }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

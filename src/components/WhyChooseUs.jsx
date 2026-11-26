@@ -63,7 +63,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="why-choose-us" className="py-20 lg:py-32 bg-white relative overflow-hidden">
+    <section id="why-choose-us" className="scroll-mt-[var(--header-height)] py-14 lg:py-20 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-tech-blue/5 to-tech-purple/5 rounded-full blur-3xl"></div>
@@ -76,24 +76,24 @@ const WhyChooseUs = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-16"
+          className="text-center mb-10 lg:mb-12"
         >
-          <motion.div variants={itemVariants} className="mb-4">
-            <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-2 rounded-full text-sm font-semibold">
+          <motion.div variants={itemVariants} className="mb-3">
+            <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-5 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
               Why Choose Us
             </span>
           </motion.div>
           
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            className="text-3xl md:text-4xl font-bold mb-4"
           >
             The <span className="gradient-text">Akvora</span> Advantage
           </motion.h2>
           
           <motion.p 
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
             We combine technical expertise with business acumen to deliver solutions that drive real results for your organization.
           </motion.p>
@@ -104,7 +104,7 @@ const WhyChooseUs = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 gap-8 mb-16"
+          className="grid md:grid-cols-2 gap-6"
         >
           {advantages.map((advantage, index) => {
             const Icon = advantage.icon;

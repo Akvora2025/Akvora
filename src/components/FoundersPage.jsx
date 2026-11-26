@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, ArrowRight, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 import SEO from './SEO';
+import FounderCard from './FounderCard';
 import { foundersData, SITE_URL } from '../data/founders';
 
 const FoundersPage = ({ setActiveSection }) => {
@@ -81,7 +81,7 @@ const FoundersPage = ({ setActiveSection }) => {
         setActiveSection={setActiveSection}
       />
       
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+      <section className="pt-[calc(var(--header-height)+0.75rem)] pb-10 lg:pb-14 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 -left-20 w-40 h-40 bg-gradient-to-br from-tech-blue/10 to-tech-purple/10 rounded-full blur-3xl"></div>
@@ -89,126 +89,40 @@ const FoundersPage = ({ setActiveSection }) => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
-          {/* Header */}
+          {/* Compact Introductory Header */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-center mb-16"
+            className="text-center mb-6 lg:mb-7"
           >
-            <motion.div variants={itemVariants} className="mb-4">
-              <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-6 py-2 rounded-full text-sm font-semibold">
+            <motion.div variants={itemVariants} className="mb-2">
+              <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-4 py-1 rounded-full text-xs font-semibold">
                 Meet the Team
               </span>
             </motion.div>
             
             <motion.h1 
               variants={itemVariants}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+              className="text-2xl sm:text-3xl font-bold mb-1.5"
             >
               Meet the <span className="gradient-text">Founders</span> of Akvora
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+              className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed"
             >
-              The visionary leaders driving Akvora's innovation and committed to delivering exceptional technology solutions. 
-              Discover the expertise behind our success in full-stack development, AI integration, and cloud deployment.
+              The visionary leaders driving Akvora's innovation in full-stack development, AI integration, and cloud deployment.
             </motion.p>
           </motion.div>
 
-          {/* Founders Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16"
-          >
-              {founders.map((founder, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="group relative"
-                >
-                  <div className="h-full bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center">
-                    {/* Profile Image */}
-                    <div className="relative mb-6">
-                      <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${founder.gradient} p-1 group-hover:scale-110 transition-transform duration-300`}>
-                        <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                          {founder.image ? (
-                            <img 
-                              src={founder.image} 
-                              alt={founder.name}
-                              className="w-full h-full object-cover rounded-full"
-                              onError={(e) => {
-                                e.target.style.display = 'none';
-                                e.target.nextSibling.style.display = 'flex';
-                              }}
-                            />
-                          ) : null}
-                          <div className={`w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 rounded-full flex items-center justify-center ${founder.image ? 'hidden' : ''}`}>
-                            <span className="text-2xl font-bold text-white">
-                              {founder.name.split(' ')[0][0]}{founder.name.split(' ')[1][0]}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Name & Role */}
-                    <h2 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-gray-900 transition-colors duration-300">
-                      {founder.name}
-                    </h2>
-                    <p className={`text-sm font-semibold mb-4 bg-gradient-to-r ${founder.gradient} bg-clip-text text-transparent`}>
-                      {founder.role}
-                    </p>
-
-                    {/* Bio */}
-                    <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                      {founder.bio}
-                    </p>
-
-                    {/* Social Links */}
-                    <div className="flex justify-center space-x-4 mb-5">
-                      <motion.a
-                        href={founder.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${founder.name} LinkedIn profile`}
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 group/social"
-                      >
-                        <Linkedin className="w-5 h-5" />
-                      </motion.a>
-                      <motion.a
-                        href={founder.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${founder.name} GitHub profile`}
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-900 hover:text-white transition-all duration-300 group/social"
-                      >
-                        <Github className="w-5 h-5" />
-                      </motion.a>
-                    </div>
-
-                    <Link
-                      to={`/founders/${founder.slug}`}
-                      className="inline-flex items-center space-x-1.5 text-sm font-semibold text-tech-blue hover:text-tech-purple transition-colors"
-                    >
-                      <span>View Full Profile</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-
-                    {/* Hover gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                  </div>
-                </motion.div>
-              ))}
-          </motion.div>
+          {/* Founders 3D Flip Grid */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto mb-10">
+            {founders.map((founder) => (
+              <FounderCard key={founder.slug} founder={founder} headingTag="h2" />
+            ))}
+          </div>
 
           {/* SEO Content Section */}
           <motion.div
@@ -261,15 +175,13 @@ const FoundersPage = ({ setActiveSection }) => {
               Our combined expertise in full-stack development, AI integration, and cloud deployment 
               ensures your project is in capable hands. Connect with us to discuss your technology needs.
             </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 text-tech-blue font-semibold cursor-pointer"
-              onClick={() => setActiveSection && setActiveSection('contact')}
+            <Link
+              to="/contact"
+              className="inline-flex items-center space-x-2 text-tech-blue font-semibold hover:text-tech-purple transition-colors cursor-pointer"
             >
               <span>Contact Our Team</span>
               <ExternalLink className="w-4 h-4" />
-            </motion.div>
+            </Link>
           </motion.div>
         </div>
       </section>
