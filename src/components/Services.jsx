@@ -183,7 +183,7 @@ const Services = () => {
         >
           <div className="mb-2">
             <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-4 py-1 rounded-full text-xs font-semibold">
-              Our Services
+              
             </span>
           </div>
 

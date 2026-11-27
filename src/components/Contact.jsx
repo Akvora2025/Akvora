@@ -305,11 +305,11 @@ const Contact = () => {
           animate={isInView ? 'visible' : 'hidden'}
           className="text-center mb-4 lg:mb-5"
         >
-          <motion.div variants={itemVariants} className="mb-1.5">
+          {/* <motion.div variants={itemVariants} className="mb-1.5">
             <span className="inline-block bg-gradient-to-r from-tech-blue to-tech-purple text-white px-3.5 py-1 rounded-full text-xs font-semibold">
               Get In Touch
             </span>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h2
             variants={itemVariants}
@@ -318,12 +318,12 @@ const Contact = () => {
             Have an Idea? <span className="gradient-text">Let's Talk</span>
           </motion.h2>
 
-          <motion.p
+          {/* <motion.p
             variants={itemVariants}
             className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed"
           >
-            Ready to start your project? Get in touch with us today and let's build something amazing together.
-          </motion.p>
+            
+          </motion.p> */}
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
